@@ -1,0 +1,10 @@
+<app-toggle-button id="app-toggle-button" [active]="traficViewActive" [text]="toggleMessage"
+        (toggleEvent)="receiveToggle($event)" (mapReady)="mapReady($event)"></app-toggle-button>
+<google-map height="900px" width="40%" [zoom]="zoom" [center]="center" [options]="options">
+    <ng-template [ngIf]="traficViewActive">
+        <map-traffic-layer [autoRefresh]="true"></map-traffic-layer>
+    </ng-template>
+    
+</google-map>
+
+<router-outlet></router-outlet>
